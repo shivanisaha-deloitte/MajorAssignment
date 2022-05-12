@@ -1,0 +1,19 @@
+create TABLE Points (TeamName VARCHAR(40), NoOfWins INT, NoOfLoss INT, Points INT)
+
+create Table TeamsDetails( slNo INT, TeamName VARCHAR(40), Owner VARCHAR(),  Captain VARCHAR(20),  HomeGround VARCHAR(40),  primary key(SlNo))
+create Table Fixture( MatchNo INT, HomeTeam VARCHAR(40), AwayTeam VARCHAR(),  Venue VARCHAR(20),  Teamwon VARCHAR(40), TeamLoss VARCHAR(20),  primary key(MatchNo))
+
+copy TeamDetails (SlNo,TeamName, Captain,OwnerName,HomeGround) 
+from 'C:\Temp\team-details.csv' delimiter ','
+CSV Header;
+
+select *from TeamDetails;
+
+select count(SlNo) from Teamdetails;
+
+copy fixture (MatchNo,HomeTeam, AwayTeam,Venue,TeamWon,TeamLost) 
+from 'C:\Temp\Fixtures.csv' delimiter ','
+CSV Header;
+
+select count(HomeTeam) from fixture where venue='Bangalore'  and Hometown=’RCB’
+select TeamLost from fixture where venue='Kolkata'
